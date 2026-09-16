@@ -1,4 +1,4 @@
-ORJİN Eğitim Kurumu — Profesyonel Frontend v4
+ORİJİN Eğitim Kurumu — Profesyonel Frontend v4
 
 2026–2027 program yapısı:
 - 9–10–11. Sınıf Akademik Modeli
