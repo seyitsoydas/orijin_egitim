@@ -271,3 +271,39 @@ button{color:inherit}
   .map-location-embed{min-height:290px}
   .map-location-embed iframe{min-height:290px}
 }
+
+
+/* ---------- v13: full-width map fix ---------- */
+.map-location-card{
+  place-items:stretch !important;
+  align-items:stretch !important;
+  justify-items:stretch !important;
+  overflow:hidden;
+}
+.map-location-overlay,
+.map-location-embed{
+  width:100%;
+  min-width:0;
+}
+.map-location-embed{
+  height:100%;
+  min-height:380px;
+  align-self:stretch;
+  justify-self:stretch;
+}
+.map-location-embed iframe{
+  display:block;
+  width:100% !important;
+  height:100% !important;
+  min-height:380px;
+  border:0;
+}
+@media(max-width:760px){
+  .map-location-card{
+    grid-template-columns:1fr;
+  }
+  .map-location-embed,
+  .map-location-embed iframe{
+    min-height:300px;
+  }
+}
