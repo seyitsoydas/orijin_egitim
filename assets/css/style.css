@@ -307,3 +307,28 @@ button{color:inherit}
     min-height:300px;
   }
 }
+
+
+/* ---------- v14: refined floating contact icons ---------- */
+@media(min-width:681px){
+  .floating-social-stack{
+    left:max(14px, calc((100vw - var(--max)) / 2 - 84px));
+    top:50%;
+    bottom:auto;
+    transform:translateY(-50%);
+    gap:14px;
+  }
+  .float-btn{
+    width:58px;
+    height:58px;
+    border:2px solid rgba(255,255,255,.16);
+    box-shadow:0 16px 34px rgba(0,0,0,.18);
+  }
+  .float-btn svg{width:23px;height:23px}
+}
+.float-btn{overflow:hidden}
+.float-phone{background:linear-gradient(180deg,#166ad0 0%,#0b57b3 100%)}
+.float-whatsapp{background:linear-gradient(180deg,#35df73 0%,#1fc85d 100%)}
+.float-instagram{background:linear-gradient(180deg,#7b3fe4 0%,#d62976 55%,#f9a326 100%)}
+.footer-socials .social{border-radius:12px}
+.footer-socials .social svg{width:17px;height:17px}
