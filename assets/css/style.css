@@ -312,10 +312,10 @@ button{color:inherit}
 /* ---------- v14: refined floating contact icons ---------- */
 @media(min-width:681px){
   .floating-social-stack{
-    left:max(14px, calc((100vw - var(--max)) / 2 - 84px));
-    top:50%;
-    bottom:auto;
-    transform:translateY(-50%);
+    left:22px;
+    top:auto;
+    bottom:26px;
+    transform:none;
     gap:14px;
   }
   .float-btn{
