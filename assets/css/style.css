@@ -332,3 +332,66 @@ button{color:inherit}
 .float-instagram{background:linear-gradient(180deg,#7b3fe4 0%,#d62976 55%,#f9a326 100%)}
 .footer-socials .social{border-radius:12px}
 .footer-socials .social svg{width:17px;height:17px}
+
+/* ---------- v16: program / öğrenci grubu dependent selects ---------- */
+.field select:disabled{color:#94989e;background:#f2f2ef;cursor:not-allowed;opacity:1;border-color:#e6e7e3}
+.field-helper{display:block;min-height:18px;margin-top:7px;font-size:10px;line-height:1.55;color:#777c82}
+
+
+/* ---------- v17: university seals from submitted university-placement PDFs ---------- */
+.result-card{min-height:254px;display:flex;flex-direction:column}
+.result-university{display:grid;grid-template-columns:48px minmax(0,1fr);align-items:center;gap:12px;margin-top:auto;padding-top:14px;min-height:66px}
+.result-university > span:last-child{font-size:11px;line-height:1.45;font-weight:750;color:#555961;overflow-wrap:anywhere}
+.result-uni-badge{width:48px;height:48px;padding:4px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #ebebe7;border-radius:13px;box-shadow:0 3px 10px rgba(15,20,20,.04);overflow:hidden;flex:none}
+.result-uni-badge img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+.result-uni-fallback{background:#f8f8f5;border-style:dashed;color:#a36b36}
+.result-uni-fallback svg{width:22px;height:22px}
+.result-chips{min-height:0}
+@media(max-width:620px){.result-card{min-height:234px}.result-uni-badge{width:44px;height:44px}.result-university{grid-template-columns:44px minmax(0,1fr)}}
+
+
+/* ---------- v18: university watermark preview ---------- */
+.result-card{isolation:isolate}
+.result-watermark{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:0;padding:28px}.result-watermark img{max-width:56%;max-height:56%;object-fit:contain;opacity:.11;filter:grayscale(8%) saturate(.9)}
+.result-card-top,.result-card h3,.result-dept,.result-university,.result-chips{position:relative;z-index:1}
+.result-university.result-university-text{grid-template-columns:1fr;gap:0;font-weight:700;color:#62666d;background:rgba(255,255,255,.72);backdrop-filter:blur(1px);border-radius:12px;padding:12px 14px;border-top:0;margin-top:14px;box-shadow:0 4px 12px rgba(0,0,0,.03)}
+.result-university.result-university-text span{display:block}
+.result-university.result-university-text:before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:999px;background:linear-gradient(180deg,var(--orange),#ffd09c)}
+@media(max-width:760px){.result-watermark img{max-width:50%;max-height:50%;opacity:.1}}
+
+
+/* ---------- v20: final university watermark treatment ---------- */
+.result-card{position:relative;overflow:hidden;isolation:isolate}
+.result-watermark{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:0;padding:28px}
+.result-watermark img{max-width:60%;max-height:60%;object-fit:contain;opacity:.14;mix-blend-mode:multiply;filter:saturate(.95) contrast(1.02)}
+.result-card-top,.result-card h3,.result-dept,.result-university,.result-chips{position:relative;z-index:1}
+.result-university.result-university-text{display:block;margin-top:18px;padding:12px 14px 12px 16px;border-radius:12px;background:rgba(255,255,255,.78);border:1px solid rgba(30,31,35,.07);box-shadow:0 8px 20px rgba(16,17,20,.03)}
+.result-university.result-university-text span{display:block;font-weight:700;color:#666b73}
+.result-university.result-university-text::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:999px;background:linear-gradient(180deg,var(--orange),#ffd3a1)}
+@media(max-width:760px){.result-watermark img{max-width:54%;max-height:54%;opacity:.12}}
+
+
+/* ---------- v21: eşit boyutlu üniversite filigranları ----------
+   Tüm PNG'ler 1000x1000 tuvalde, logolar eşit görsel alana normalize edildi.
+   Bu yüzden görsel kutu sabit kare; yüzdeli max-width/max-height kullanılmıyor. */
+.result-watermark img{
+  width:min(44%,200px);
+  height:auto;
+  aspect-ratio:1/1;
+  max-width:none;
+  max-height:none;
+  object-fit:contain;
+  opacity:.14;
+}
+@media(max-width:760px){.result-watermark img{width:min(42%,170px);opacity:.12}}
+
+
+/* ---------- v22: öğrencilerimizin yerleştiği üniversiteler ---------- */
+.uni-wall-count{color:var(--orange)}
+.uni-wall{list-style:none;margin:0;padding:0;display:grid;grid-auto-rows:1fr;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:12px}
+.uni-wall-item{display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px 10px 14px;background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);text-align:center;transition:.25s}
+.uni-wall-item img{width:64px;height:64px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:.25s}
+.uni-wall-item span{font-size:11px;line-height:1.35;font-weight:700;color:#5d6167}
+.uni-wall-item:hover{border-color:#ffc98d;box-shadow:var(--shadow-soft);transform:translateY(-3px)}
+.uni-wall-item:hover img{filter:none;opacity:1}
+@media(max-width:620px){.uni-wall{grid-template-columns:repeat(3,1fr);gap:8px}.uni-wall-item{padding:14px 6px 10px}.uni-wall-item img{width:48px;height:48px}.uni-wall-item span{font-size:10px}}

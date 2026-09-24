@@ -77,3 +77,58 @@ document.querySelectorAll('form[data-demo-form]').forEach(form => {
 window.addEventListener('resize', () => {
   if(window.innerWidth > 920 && header) header.classList.remove('nav-open');
 });
+
+// Program seçimine göre YKS öğrenci grubu / Maarif sınıfı seçenekleri.
+const programSelect = document.querySelector('#program-select');
+const studentGroupSelect = document.querySelector('#student-group');
+const studentGroupLabel = document.querySelector('#student-group-label');
+const studentGroupHelp = document.querySelector('#student-group-help');
+
+if (programSelect && studentGroupSelect && studentGroupLabel && studentGroupHelp) {
+  const groupOptions = {
+    'yks': {
+      label: 'Öğrenci Grubu',
+      help: '12. sınıf veya mezun grubunu seçiniz.',
+      options: [
+        ['12-sinif', '12. Sınıf'],
+        ['mezun', 'Mezun']
+      ]
+    },
+    'ara-sinif': {
+      label: 'Sınıf / Maarif Modeli',
+      help: 'Türkiye Yüzyılı Maarif Modeli kapsamındaki sınıfınızı seçiniz.',
+      options: [
+        ['9-sinif', '9. Sınıf – Maarif Modeli'],
+        ['10-sinif', '10. Sınıf – Maarif Modeli'],
+        ['11-sinif', '11. Sınıf – Maarif Modeli']
+      ]
+    }
+  };
+
+  function updateStudentGroups() {
+    const group = groupOptions[programSelect.value];
+    // Başka programa geçildiğinde eski seçimin kalmasını önle.
+    studentGroupSelect.replaceChildren();
+    const placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.disabled = true;
+    placeholder.selected = true;
+    placeholder.textContent = group ? 'Öğrenci grubunu seçiniz' : 'Önce program seçiniz';
+    studentGroupSelect.appendChild(placeholder);
+    studentGroupSelect.disabled = !group;
+    studentGroupLabel.textContent = group ? group.label : 'Öğrenci Grubu / Sınıf';
+    studentGroupHelp.textContent = group
+      ? group.help
+      : 'Seçtiğiniz programa göre seçenekler görünecek.';
+    if (!group) return;
+    group.options.forEach(([value, label]) => {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = label;
+      studentGroupSelect.appendChild(option);
+    });
+  }
+
+  programSelect.addEventListener('change', updateStudentGroups);
+  updateStudentGroups();
+}
